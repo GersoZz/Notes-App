@@ -15,23 +15,42 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home
-            
-          </a>
-        </li>
+        {{#if user}}
 
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home
+              {{! <span class="visually-hidden">(current)</span> }}
+            </a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/notes">All Notes</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/notes/add">Add A Note</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/profile">Profile</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/notes">All Notes</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/notes/add">Add A Note</a>
+          </li>
+
+        {{else}}
+
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home
+              {{! <span class="visually-hidden">(current)</span> }}
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+        {{/if}}
 
       </ul>
 
@@ -58,12 +77,23 @@
           </li>
 
         {{else}}
-          <li class="nav-item">
-            <a href="/users/signin" class="nav-link">Login</a>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Login
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/users/signin">SignIn</a></li>
+              <li><a class="dropdown-item" href="/users/signup">SignUp</a></li>
+
+            </ul>
           </li>
-          <li class="nav-item">
-            <a href="/users/signup" class="nav-link">Register</a>
-          </li>
+
         {{/if}}
       </ul>
 

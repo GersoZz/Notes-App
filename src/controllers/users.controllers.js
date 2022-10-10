@@ -74,4 +74,8 @@ userCtrl.logout = (req, res) => {
   });
 };
 
+userCtrl.profile = (req, res) => {
+  //console.log(res.locals.user);
+  res.render("users/profile", res.locals.user);
+};
 module.exports = userCtrl;
